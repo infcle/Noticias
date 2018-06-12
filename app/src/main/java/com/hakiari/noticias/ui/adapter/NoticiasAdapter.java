@@ -18,11 +18,13 @@ public class NoticiasAdapter extends RecyclerView.Adapter<NoticiasAdapter.ViewHo
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
         public TextView tvTitulo;
+        public TextView tvResumen;
         public ImageView ivImagen;
 
         public ViewHolder(View v) {
             super(v);
             tvTitulo= v.findViewById(R.id.tvNoticiaTitulo);
+            tvResumen=v.findViewById(R.id.tvResumen);
             ivImagen=v.findViewById(R.id.ivNoticiaImagen);
         }
     }
@@ -37,9 +39,7 @@ public class NoticiasAdapter extends RecyclerView.Adapter<NoticiasAdapter.ViewHo
     }
 
     @Override
-    public NoticiasAdapter.ViewHolder onCreateViewHolder(ViewGroup parent,
-                                                         int viewType) {
-
+    public NoticiasAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.nnoticias_view, parent, false);
 
@@ -49,6 +49,8 @@ public class NoticiasAdapter extends RecyclerView.Adapter<NoticiasAdapter.ViewHo
     @Override
     public void onBindViewHolder(ViewHolder holder, int i) {
         holder.tvTitulo.setText(mDataSet.get(i).getTitulo());
+        holder.tvResumen.setText(mDataSet.get(i).getFecha()+ " "+ mDataSet.get(i).getFuente());
+        holder.ivImagen.setImageBitmap(mDataSet.get(i).getImagen_media());
     }
 
     @Override
