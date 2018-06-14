@@ -60,7 +60,7 @@
                 android:layout_height="wrap_content"
                 android:text="resumen"
                 android:textSize="10sp"
-                col/>
+                android:textColor="@color/colorSecundaryText"/>
         </LinearLayout>
     </LinearLayout>
 

@@ -35,13 +35,13 @@ public class NoticiasAdapter extends RecyclerView.Adapter<NoticiasAdapter.ViewHo
             tvTitulo = v.findViewById(R.id.tvNoticiaTitulo);
             tvResumen = v.findViewById(R.id.tvResumen);
             ivImagen = v.findViewById(R.id.ivNoticiaImagen);
-            tvFuente=v.findViewById(R.id.tvFuente);
+            tvFuente = v.findViewById(R.id.tvFuente);
         }
     }
 
     public NoticiasAdapter(Context context) {
         mDataSet = new ArrayList<>();
-        this.context=context;
+        this.context = context;
     }
 
     public void setDataSet(ArrayList<Noticia> dataSet) {
@@ -61,23 +61,24 @@ public class NoticiasAdapter extends RecyclerView.Adapter<NoticiasAdapter.ViewHo
     public void onBindViewHolder(ViewHolder holder, int i) {
         holder.tvTitulo.setText(Html.fromHtml(mDataSet.get(i).getTitulo()));
         holder.tvFuente.setText(Html.fromHtml(mDataSet.get(i).getFuente()));
-        String nota=mDataSet.get(i).Resumen(mDataSet.get(i).getDetalle());
+        String nota = mDataSet.get(i).Resumen(mDataSet.get(i).getDetalle());
         holder.tvResumen.setText(nota);
         try {
             byte[] byteData = Base64.decode(mDataSet.get(i).getImg_mini(), Base64.DEFAULT);
-            Bitmap imagen_mini = BitmapFactory.decodeByteArray( byteData, 0, byteData.length);
+            Bitmap imagen_mini = BitmapFactory.decodeByteArray(byteData, 0, byteData.length);
             holder.ivImagen.setImageBitmap(imagen_mini);
-        }
-        catch(Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
-
+        final Noticia mnotiicia = mDataSet.get(i);
         // bind click event
         holder.tvResumen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent= new Intent(context, CompletaActivity.class);
-                intent.putExtra("mi_noticia",mDataSet.get(i));
+                Intent intent = new Intent(context, CompletaActivity.class);
+                intent.putExtra("titulo",mnotiicia.getTitulo());
+                intent.putExtra("imagen",mnotiicia.getImg_media());
+                intent.putExtra("detalle",mnotiicia.getDetalle());
                 context.startActivity(intent);
             }
         });

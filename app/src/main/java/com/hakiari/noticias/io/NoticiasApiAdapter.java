@@ -17,8 +17,8 @@ public class NoticiasApiAdapter {
         OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
         httpClient.addInterceptor(logging);
 
-        String baseUrl = "http://10.10.10.9/restapi/public/api/";
-        //String baseUrl = "http://sitio.puntobol.com/restapi-master/public/api/";
+        //String baseUrl = "http://10.10.10.9/restapi/public/api/";
+        String baseUrl = "http://sitio.puntobol.com/restapi-master/public/api/";
 
         if (API_SERVICE == null) {
             Retrofit retrofit = new Retrofit.Builder()

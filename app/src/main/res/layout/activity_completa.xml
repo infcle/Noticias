@@ -13,18 +13,24 @@
         android:layout_height="0dp"
         android:layout_weight="3"
         />
+
     <TextView
         android:id="@+id/tvCompletaTitulo"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
+        android:text="Titular"
         android:textColor="@color/colorPrimaryText"
-        android:text="Titular"/>
+        android:textStyle="bold"
+        android:textSize="12sp"/>
+
     <TextView
         android:id="@+id/tvCompletaDetalle"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_weight="3"
+        android:text="detalle"
         android:textColor="@color/colorSecundaryText"
-        android:text="detalle"/>
+        android:textSize="10sp"
+        android:verticalScrollbarPosition="defaultPosition" />
 </LinearLayout>
