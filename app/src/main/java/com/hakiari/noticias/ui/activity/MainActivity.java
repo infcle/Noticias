@@ -49,6 +49,6 @@ public class MainActivity extends AppCompatActivity implements Callback<ArrayLis
 
     @Override
     public void onFailure(Call<ArrayList<Noticia>> call, Throwable t) {
-
+        Toast.makeText(MainActivity.this, "Something went wrong...Please try later!", Toast.LENGTH_SHORT).show();
     }
 }
