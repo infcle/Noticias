@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity implements Callback<ArrayLis
         GridLayoutManager layoutManager = new GridLayoutManager(this, 1);
         mRecyclerView.setLayoutManager(layoutManager);
 
-        mAdapter = new NoticiasAdapter();
+        mAdapter = new NoticiasAdapter(this);
         mRecyclerView.setAdapter(mAdapter);
 
         Call<ArrayList<Noticia>> call = NoticiasApiAdapter.getApiService().getNoticias();
